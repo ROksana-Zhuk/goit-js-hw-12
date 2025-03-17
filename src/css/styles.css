@@ -1,0 +1,152 @@
+/**
+  |============================
+  | include css partials with
+  | default @import url()
+  |============================
+*/
+/* Common styles */
+@import url('./reset.css');
+@import url('./base.css');
+@import url('./container.css');
+@import url('./animations.css');
+
+/* Sections style */
+@import url('./header.css');
+@import url('./badges.css');
+@import url('./back-link.css');
+
+.form {
+    display: flex;
+    flex-direction: row;
+    padding-left: 535px;
+
+    padding-top: 36px;
+    margin-bottom: 32px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+input {
+    border: 1px solid #808080;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: left;
+    max-width: 100%;
+    background-color: transparent;
+    outline: transparent;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    color:#808080;
+}
+
+
+input:hover {
+    border: 1px solid #000000;
+    transition-property: border, transform;
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input:active {
+    border: 1px solid #4E75FF;
+}
+
+button {
+    border-radius: 8px;
+    background-color: #4E75FF;
+    color:#FFFFFF;
+    display: inline-block;
+    max-width: 100%;
+    padding: 8px 16px;
+    margin: 0 auto;
+    margin-left: 8px;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+                color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover {
+    background-color: #6C8CFF;
+}
+
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid;
+    border-color: #FF3D00 transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    max-width: 1128px;
+    min-width: 1128px;
+    margin-left: 156px;
+    margin-right: 156px;
+}
+
+ li {
+    width: calc((100% - 48px) / 3);
+    border: 1px solid #808080;
+}
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    margin-top: 24px;
+}
+
+td,
+th {
+    text-align: center;
+}
+
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
