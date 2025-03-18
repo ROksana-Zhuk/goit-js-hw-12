@@ -3,7 +3,7 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://pixabay.com';
 const myApiKey = '49271250-6e2a7e536995fb461bd1f8f83';
 
-export function getImagesPromise(userInput) {
+export function getImagesPromise(userInput, pageNumber, perPage) {
   return axios.get('/api/', {
     params: {
       key: myApiKey,
@@ -11,8 +11,8 @@ export function getImagesPromise(userInput) {
       image_type: 'photo',
       orientation: 'horizontal',
       safesearch: 'true',
-      per_page: 15
-
+      per_page: perPage,
+      page: pageNumber,
     },
   });
 }

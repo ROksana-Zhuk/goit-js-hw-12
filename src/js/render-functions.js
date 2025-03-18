@@ -9,20 +9,32 @@ const simpleLightboxInstance = new SimpleLightbox('.gallery-link', {
 const galleryListEl = document.querySelector('.gallery');
 const inputEl = document.querySelector('input[name = search-text]');
 const loaderEl = document.querySelector('.visually-hidden');
+const moreButton = document.querySelector('.more-button');
 
 export function addLoader() {
   loaderEl.classList.remove('visually-hidden');
+}
+
+export function clearGallery() {
   galleryListEl.innerHTML = '';
+}
+
+export function hideButton() {
+  moreButton.style.display = 'none';
 }
 
 export function removeLoader() {
   loaderEl.classList.add('visually-hidden');
 }
 
+export function showButton() {
+  moreButton.style.display = 'block';
+}
+
 export function addImagesMarkup(imagesHits) {
   const markup = imagesHits
     .map(hit => {
-      return `<li>
+      return `<li class="gallery-item">
           <a class="gallery-link" href="${hit.largeImageURL}">
             <img src="${hit.webformatURL}" alt="${hit.tags}" title=""/>
           </a>

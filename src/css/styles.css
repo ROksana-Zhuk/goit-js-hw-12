@@ -99,10 +99,7 @@ button:hover {
     }
   }
 
-  ul {
-    list-style: none;
-    padding: 0;
-}
+
 
 .gallery {
     display: flex;
@@ -115,18 +112,17 @@ button:hover {
     margin: 32px auto;
 }
 
- li {
+li {
     width: calc((100% - 48px) / 3);
     border: 1px solid #808080;
 
 }
 
-  img {
+img {
+    height: 200px;
     width: 100%;
-    height: auto;
     display: block;
-    overflow: hidden;
-}
+  }
 
 table {
     width: 100%;
@@ -154,7 +150,7 @@ th {
 }
 
 .more-button {
-    display: block;
+    display: none;
     margin: 32px auto 44px;
     padding: 8px 16px;
     border-radius: 8px;
@@ -174,3 +170,4 @@ th {
     background-color: #6C8CFF;
 
   }
+
