@@ -81,9 +81,3 @@ moreButton.addEventListener('click', async event => {
     showButton();
   }
 });
-
-//const cardHeight = images.getBoundingClientRect().height;
-//window.scrollBy({
-//top: cardHeight * 2,
-//behavior: 'smooth',
-//});
