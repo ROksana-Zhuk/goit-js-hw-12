@@ -17,14 +17,12 @@
 
 .form {
     display: flex;
-    flex-direction: row;
-    padding-left: 535px;
-
-    padding-top: 36px;
+    width: 371px;
+    margin: 0 auto;
+    margin-top: 36px;
     margin-bottom: 32px;
-    justify-content: center;
-    align-items: center;
-
+    justify-content: space-between;
+    gap: 8px;
 }
 
 input {
@@ -33,14 +31,14 @@ input {
     font-size: 16px;
     line-height: 1.5;
     text-align: left;
-    max-width: 100%;
+    width: 272px;
     background-color: transparent;
     outline: transparent;
     padding-top: 8px;
     padding-bottom: 8px;
     padding-left: 16px;
     color:#808080;
-}
+  }
 
 
 input:hover {
@@ -60,8 +58,7 @@ button {
     display: inline-block;
     max-width: 100%;
     padding: 8px 16px;
-    margin: 0 auto;
-    margin-left: 8px;
+
     cursor: pointer;
     border: none;
     font-size: 16px;
@@ -71,10 +68,10 @@ button {
                 color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+
 button:hover {
     background-color: #6C8CFF;
 }
-
 
 .loader {
     width: 48px;
@@ -86,7 +83,12 @@ button:hover {
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
 
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
+
 
   @keyframes rotation {
     0% {
@@ -106,17 +108,17 @@ button:hover {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 1128px;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
-
-    max-width: 1128px;
-    min-width: 1128px;
-    margin-left: 156px;
-    margin-right: 156px;
+    margin: 32px auto;
 }
 
  li {
     width: calc((100% - 48px) / 3);
     border: 1px solid #808080;
+
 }
 
   img {
@@ -150,3 +152,25 @@ th {
     clip: rect(0 0 0 0);
     overflow: hidden;
 }
+
+.more-button {
+    display: block;
+    margin: 32px auto 44px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #fff;
+    background-color: #4E75FF;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+
+  .more-button:hover {
+    background-color: #6C8CFF;
+
+  }

@@ -9,7 +9,7 @@ import { addImagesMarkup } from './js/render-functions';
 const formEl = document.querySelector('.form');
 const inputEl = document.querySelector('input[name = search-text]');
 
-formEl.addEventListener('submit', event => {
+formEl.addEventListener('submit', async (event) => {
   event.preventDefault();
   const userInput = inputEl.value.trim();
   if (userInput === '') {
@@ -17,21 +17,21 @@ formEl.addEventListener('submit', event => {
   }
   addLoader();
 
-  getImagesPromise(userInput)
-    .then(response => {
-      console.log(response);
+  try {
+     const response = await getImagesPromise(userInput);
+     console.log(response);
+     if (response.data.hits.length === 0) {
+       iziToast.error({
+         message:
+           'Sorry, there are no images matching your search query. Please try again!',
+       });
+     } else {
+       addImagesMarkup(response.data.hits);
+     }
 
-      if (response.data.hits.length === 0) {
-        iziToast.error({
-          message:
-            'Sorry, there are no images matching your search query. Please try again!',
-        });
-      } else {
-        addImagesMarkup(response.data.hits);
-      }
-    })
-    .catch(error => console.log(error))
-    .finally(() => {
-      removeLoader();
-    });
+  } catch (error) {
+    console.log(error);
+  }
+
+  removeLoader();
 });

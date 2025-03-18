@@ -11,6 +11,8 @@ export function getImagesPromise(userInput) {
       image_type: 'photo',
       orientation: 'horizontal',
       safesearch: 'true',
+      per_page: 15
+
     },
   });
 }
