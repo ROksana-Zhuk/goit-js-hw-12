@@ -1,7 +1,7 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-import { getImagesPromise } from './js/pixabay-api';
+import { getImagesList } from './js/pixabay-api';
 import { addLoader } from './js/render-functions';
 import {
   removeLoader,
@@ -30,10 +30,11 @@ formEl.addEventListener('submit', async event => {
   }
   clearGallery();
   addLoader();
+  hideButton();
 
   try {
     pageNumber = 1;
-    const response = await getImagesPromise(userInput, pageNumber, perPage);
+    const response = await getImagesList(userInput, pageNumber, perPage);
 
     if (response.data.hits.length === 0) {
       iziToast.error({
@@ -43,7 +44,10 @@ formEl.addEventListener('submit', async event => {
       });
     } else {
       addImagesMarkup(response.data.hits);
-      showButton();
+
+      if (response.data.hits.length >= perPage) {
+        showButton();
+      }
     }
   } catch (error) {
     console.log(error);
@@ -55,7 +59,7 @@ formEl.addEventListener('submit', async event => {
 moreButton.addEventListener('click', async event => {
   hideButton();
   pageNumber += 1;
-  const images = await getImagesPromise(userInput, pageNumber, perPage);
+  const images = await getImagesList(userInput, pageNumber, perPage);
 
   addLoader();
 
